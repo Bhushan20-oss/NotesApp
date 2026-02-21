@@ -1,0 +1,29 @@
+.homepage {
+  display: flex;
+  flex-direction: row;
+  background: #dae5f5;
+}
+.content {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.homeimg {
+  height: auto;
+  width: auto;
+  margin-bottom: 5px;
+}
+
+.bottom-text{
+  display: flex;
+  flex: auto;
+  align-items: end;
+  margin-bottom: 40px;
+  gap: 6px;                
+}
+.bottom-text svg {
+  font-size: 1rem; 
+
+}

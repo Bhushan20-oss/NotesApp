@@ -1,0 +1,10 @@
+.container{
+    background: #ffff;
+    height: 100vh;
+    width: 25%;
+}
+
+.maintext{
+    size: 20px;
+    margin: 80px;
+}
