@@ -1,0 +1,50 @@
+.notes-container {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Hide scrollbar (optional clean look) */
+.notes-container::-webkit-scrollbar {
+  width: 6px;
+}
+.notes-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.note-list {
+  width: 90%;
+  margin: 10px auto;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.note-list:hover {
+  background: #e5e5e5;
+}
+
+.profile {
+  height: 50px;
+  width: 50px;
+  min-width: 50px;
+
+  background: #6c63ff; 
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 16px;
+}

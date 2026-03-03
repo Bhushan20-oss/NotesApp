@@ -1,12 +1,28 @@
-import React from 'react';
-import './sidebar.css'
+import React from "react";
+import "./sidebar.css";
+import AddButton from "../AddButton/Addbutton";
+import Notes from "../Notes/Notes";
 
-const Sidebar = () => {
+const Sidebar = ({
+  groups,
+  addGroup,
+  selectedGroupId,
+  setSelectedGroupId,
+  openModal,
+}) => {
   return (
-    <div className='container'>
-      <h1 className='maintext'>Pocket Notes</h1>
-    </div>
-  )
-}
+    <div className="container">
+      <h1 className="maintext">Pocket Notes</h1>
 
-export default Sidebar
+      <Notes
+        groups={groups}
+        selectedGroupId={selectedGroupId}
+        setSelectedGroupId={setSelectedGroupId}
+      />
+
+      <AddButton addGroup={addGroup} openModal={openModal}/>
+    </div>
+  );
+};
+
+export default Sidebar;

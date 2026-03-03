@@ -1,0 +1,25 @@
+.add-btn-container {
+  position: absolute;
+  bottom: 20px;
+  left: 22%;
+  transform: translateX(-50%);
+}
+.add-btn {
+  background-color: #16008b;
+  color: #000;
+  border: none;
+  height: 60px;
+  width: 60px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.add-btn svg {
+  color: aliceblue;
+  font-size: 25px;
+  align-self: center;
+}

@@ -1,0 +1,92 @@
+/* PAGE LAYOUT */
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 75%;
+  background: #e5e8ee;
+  font-family: sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  background: #0b2c8f;
+  color: white;
+}
+
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  background: #2d63ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.title {
+  margin: 0;
+}
+
+/* NOTES AREA */
+.notes-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.note-card {
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.note-time {
+  text-align: right;
+  margin-top: 10px;
+  font-size: 13px;
+  color: gray;
+}
+
+/* MESSAGE BOX */
+.msg-container {
+  position: relative;
+  padding: 15px;
+  background: #0b2c8f;
+}
+
+.msg-box {
+  width: 100%;
+  height: 90px;
+  border-radius: 10px;
+  border: none;
+  padding: 15px;
+  font-size: 15px;
+  resize: none;
+  outline: none;
+}
+.send-btn {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background: transparent;
+  border: none;
+  color: #001F8B;
+}
+
+.send-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.send-btn.active {
+  opacity: 1;
+  cursor: pointer;
+}

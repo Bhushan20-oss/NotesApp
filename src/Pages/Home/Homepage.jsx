@@ -1,26 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import LockIcon from '@mui/icons-material/Lock';
+import MessageBox from "../../components/MessageBox/MessageBox";
+import NewGrp from "../../components/NewGrp/NewGrp";
 const Homepage = () => {
+  const [groups, setGroups] = useState([]);
+  const [selectedGroupId, setSelectedGroupId] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  /* ---------------------------
+     ADD NOTE
+  ---------------------------- */
+  const addNote = (content) => {
+    if (!selectedGroupId || !content.trim()) return;
+
+    const newNote = {
+      id: Date.now(),
+      content: content.trim(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    };
+
+    setGroups((prevGroups) =>
+      prevGroups.map((group) =>
+        group.id === selectedGroupId
+          ? { ...group, notes: [...group.notes, newNote] }
+          : group,
+      ),
+    );
+  };
+
+  /* ---------------------------
+     ADD GROUP
+  ---------------------------- */
+  const addGroup = (name, color) => {
+    const trimmed = name.trim();
+
+    if (trimmed.length < 2) {
+      alert("Group name must be at least 2 characters");
+      return;
+    }
+
+    const isDuplicate = groups.some(
+      (group) => group.name.toLowerCase() === trimmed.toLowerCase(),
+    );
+
+    if (isDuplicate) {
+      alert("Group already exists");
+      return;
+    }
+
+    const newGroup = {
+      id: Date.now(),
+      name: trimmed,
+      color: color,
+      notes: [],
+    };
+
+    setGroups((prev) => [...prev, newGroup]);
+    setSelectedGroupId(newGroup.id);
+  };
+
+  /* ---------------------------
+     DERIVED SELECTED GROUP
+  ---------------------------- */
+  const selectedGroup = groups.find((group) => group.id === selectedGroupId);
+
   return (
     <div className="homepage">
-      <Sidebar />
-      <div className="content">
-        <img
-          src="src\assets\image-removebg-preview 1.png"
-          className="homeimg"
-        />
-        <h1>Pocket Notes</h1>
-        <p>Send and receive messages without keeping your phone online. </p>
-        <p> Use Pocket Notes on up to 4 linked devices and 1 mobile phone</p>
+      {showModal && (
+        <NewGrp addGroup={addGroup} onClose={() => setShowModal(false)} />
+      )}
+      <Sidebar
+        groups={groups}
+        addGroup={addGroup}
+        selectedGroupId={selectedGroupId}
+        setSelectedGroupId={setSelectedGroupId}
+        openModal={() => setShowModal(true)}
+      />
 
-        <div className="bottom-text">        <p><LockIcon style={{top:-20}}/>end-to-end encrypted</p></div>
-
-
-      </div>
+      <MessageBox selectedGroup={selectedGroup} addNote={addNote} />
     </div>
   );
 };
 
 export default Homepage;
+
+{
+  /* */
+}

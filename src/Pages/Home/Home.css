@@ -2,10 +2,13 @@
   display: flex;
   flex-direction: row;
   background: #dae5f5;
+    height: 100vh;    
+  position: relative; 
+  overflow: hidden;
 }
 .content {
   display: flex;
-  flex: auto;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -13,17 +16,20 @@
 .homeimg {
   height: auto;
   width: auto;
-  margin-bottom: 5px;
 }
 
 .bottom-text{
+  position: absolute;
+  bottom: 20px;             
+  left: 63%;
+  transform: translateX(-50%);
   display: flex;
-  flex: auto;
-  align-items: end;
-  margin-bottom: 40px;
-  gap: 6px;                
+  align-items: center;
+  gap: 6px;                  
+  color: #000;
+  font-size: 14px;
 }
 .bottom-text svg {
-  font-size: 1rem; 
-
+  font-size: 16px;
+  vertical-align: middle;
 }

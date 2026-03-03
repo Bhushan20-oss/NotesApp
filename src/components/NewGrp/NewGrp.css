@@ -1,0 +1,54 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.input-row,
+.color-row {
+  margin: 15px 0;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.color-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.color-circle.active {
+  border: 3px solid black;
+}
+
+.create-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: #0047ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
