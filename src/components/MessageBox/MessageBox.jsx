@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./MessageBox.css";
 import SendIcon from "@mui/icons-material/Send";
 import LockIcon from "@mui/icons-material/Lock";
-const MessageBox = ({ selectedGroup, addNote }) => {
+const MessageBox = ({ selectedGroup, addNote, goBack }) => {
   const [message, setMessage] = useState("");
 
   // Format date + time nicely
@@ -65,12 +65,22 @@ const MessageBox = ({ selectedGroup, addNote }) => {
   return (
     <div className="page">
       {/* TOP NAVBAR */}
-      <div className="navbar">
-        <div className="profile-circle">
-          {selectedGroup.name.slice(0, 2).toUpperCase()}
-        </div>
-        <h3 className="title">{selectedGroup.name}</h3>
-      </div>
+<div className="navbar">
+  {goBack && (
+    <span
+      style={{ cursor: "pointer", fontSize: "20px" }}
+      onClick={goBack}
+    >
+      ←
+    </span>
+  )}
+
+  <div className="profile-circle">
+    {selectedGroup.name.slice(0, 2).toUpperCase()}
+  </div>
+
+  <h3 className="title">{selectedGroup.name}</h3>
+</div>
 
       {/* NOTES AREA */}
       <div className="notes-container">
@@ -96,13 +106,13 @@ const MessageBox = ({ selectedGroup, addNote }) => {
           onKeyDown={handleKeyDown}
         />
 
-<button
-  className={`send-btn ${message.trim() ? "active" : "disabled"}`}
-  onClick={handleSend}
-  disabled={!message.trim()}
->
-  <SendIcon />
-</button>
+        <button
+          className={`send-btn ${message.trim() ? "active" : "disabled"}`}
+          onClick={handleSend}
+          disabled={!message.trim()}
+        >
+          <SendIcon />
+        </button>
       </div>
     </div>
   );

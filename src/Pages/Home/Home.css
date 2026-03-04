@@ -1,11 +1,12 @@
 .homepage {
   display: flex;
-  flex-direction: row;
   background: #dae5f5;
-    height: 100vh;    
-  position: relative; 
+  height: 100vh;
+  position: relative;
   overflow: hidden;
 }
+
+
 .content {
   display: flex;
   flex: 1;
@@ -32,4 +33,11 @@
 .bottom-text svg {
   font-size: 16px;
   vertical-align: middle;
+}
+
+
+@media (max-width: 768px) {
+  .homepage {
+    flex-direction: column;
+  }
 }
