@@ -5,10 +5,6 @@ import MessageBox from "../../components/MessageBox/MessageBox";
 import NewGrp from "../../components/NewGrp/NewGrp";
 
 const Homepage = () => {
-  /* ----------------------------------
-     INITIALIZE FROM LOCAL STORAGE
-  ----------------------------------- */
-
   const [groups, setGroups] = useState(() => {
     const stored = localStorage.getItem("pocket_groups");
     return stored ? JSON.parse(stored) : [];
@@ -22,17 +18,9 @@ const Homepage = () => {
   const [showModal, setShowModal] = useState(false);
 const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  /* ----------------------------------
-     SAVE GROUPS TO LOCAL STORAGE
-  ----------------------------------- */
-
   useEffect(() => {
     localStorage.setItem("pocket_groups", JSON.stringify(groups));
   }, [groups]);
-
-  /* ----------------------------------
-     SAVE SELECTED GROUP
-  ----------------------------------- */
 
   useEffect(() => {
     if (selectedGroupId !== null) {
@@ -51,9 +39,7 @@ const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   return () => window.removeEventListener("resize", handleResize);
 }, []);
 
-  /* ----------------------------------
-     ADD NOTE
-  ----------------------------------- */
+
 
   const addNote = (content) => {
     if (!selectedGroupId || !content.trim()) return;
@@ -74,9 +60,6 @@ const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     );
   };
 
-  /* ----------------------------------
-     ADD GROUP
-  ----------------------------------- */
 
   const addGroup = (name, color) => {
     const trimmed = name.trim();
@@ -107,17 +90,12 @@ if (words.length < 2) {
     setSelectedGroupId(newGroup.id);
   };
 
-  /* ----------------------------------
-     DERIVED SELECTED GROUP
-  ----------------------------------- */
+
 
   const selectedGroup = groups.find(
     (group) => group.id === selectedGroupId
   );
 
-  /* ----------------------------------
-     RENDER
-  ----------------------------------- */
 
   return (
     <div className="homepage">
