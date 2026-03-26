@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./MessageBox.css";
 import SendIcon from "@mui/icons-material/Send";
 import LockIcon from "@mui/icons-material/Lock";
+import img from '../../assets/img.png'
 const MessageBox = ({ selectedGroup, addNote, goBack }) => {
   const [message, setMessage] = useState("");
 
@@ -43,7 +44,7 @@ const MessageBox = ({ selectedGroup, addNote, goBack }) => {
       <>
         <div className="content">
           <img
-            src="src\assets\image-removebg-preview 1.png"
+            src={img}
             className="homeimg"
           />
           <h1>Pocket Notes</h1>
